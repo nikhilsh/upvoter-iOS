@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3132E54520B046D10048F521 /* UpvoterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132E54420B046D10048F521 /* UpvoterViewController.swift */; };
+		3132E54720B046DD0048F521 /* UpvoterViewModelContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132E54620B046DD0048F521 /* UpvoterViewModelContract.swift */; };
+		3132E54920B046E50048F521 /* UpvoterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132E54820B046E50048F521 /* UpvoterViewModel.swift */; };
 		31804C5420B041EA0010880F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31804C5320B041EA0010880F /* AppDelegate.swift */; };
 		31804C5920B041EA0010880F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31804C5720B041EA0010880F /* Main.storyboard */; };
 		31804C5B20B041EC0010880F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31804C5A20B041EC0010880F /* Assets.xcassets */; };
 		31804C5E20B041EC0010880F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31804C5C20B041EC0010880F /* LaunchScreen.storyboard */; };
 		31804C6920B041EC0010880F /* UpvoterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31804C6820B041EC0010880F /* UpvoterTests.swift */; };
+		318C317220B074B800CB518E /* UpvoterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C317120B074B800CB518E /* UpvoterCell.swift */; };
+		318C317520B074F900CB518E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C317420B074F900CB518E /* Topic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3132E54420B046D10048F521 /* UpvoterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterViewController.swift; sourceTree = "<group>"; };
+		3132E54620B046DD0048F521 /* UpvoterViewModelContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterViewModelContract.swift; sourceTree = "<group>"; };
+		3132E54820B046E50048F521 /* UpvoterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterViewModel.swift; sourceTree = "<group>"; };
 		31804C5020B041EA0010880F /* Upvoter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Upvoter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31804C5320B041EA0010880F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31804C5820B041EA0010880F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,6 +42,8 @@
 		31804C6420B041EC0010880F /* UpvoterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpvoterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31804C6820B041EC0010880F /* UpvoterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterTests.swift; sourceTree = "<group>"; };
 		31804C6A20B041EC0010880F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		318C317120B074B800CB518E /* UpvoterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterCell.swift; sourceTree = "<group>"; };
+		318C317420B074F900CB518E /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3132E54A20B047480048F521 /* UpvoterView */ = {
+			isa = PBXGroup;
+			children = (
+				3132E54420B046D10048F521 /* UpvoterViewController.swift */,
+				3132E54620B046DD0048F521 /* UpvoterViewModelContract.swift */,
+				3132E54820B046E50048F521 /* UpvoterViewModel.swift */,
+				318C317120B074B800CB518E /* UpvoterCell.swift */,
+				31804C5720B041EA0010880F /* Main.storyboard */,
+			);
+			path = UpvoterView;
+			sourceTree = "<group>";
+		};
 		31804C4720B041EA0010880F = {
 			isa = PBXGroup;
 			children = (
@@ -76,7 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				31804C5320B041EA0010880F /* AppDelegate.swift */,
-				31804C5720B041EA0010880F /* Main.storyboard */,
+				3132E54A20B047480048F521 /* UpvoterView */,
+				318C317320B074E300CB518E /* Model */,
 				31804C5A20B041EC0010880F /* Assets.xcassets */,
 				31804C5C20B041EC0010880F /* LaunchScreen.storyboard */,
 				31804C5F20B041EC0010880F /* Info.plist */,
@@ -91,6 +114,14 @@
 				31804C6A20B041EC0010880F /* Info.plist */,
 			);
 			path = UpvoterTests;
+			sourceTree = "<group>";
+		};
+		318C317320B074E300CB518E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				318C317420B074F900CB518E /* Topic.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				318C317220B074B800CB518E /* UpvoterCell.swift in Sources */,
+				318C317520B074F900CB518E /* Topic.swift in Sources */,
+				3132E54520B046D10048F521 /* UpvoterViewController.swift in Sources */,
 				31804C5420B041EA0010880F /* AppDelegate.swift in Sources */,
+				3132E54920B046E50048F521 /* UpvoterViewModel.swift in Sources */,
+				3132E54720B046DD0048F521 /* UpvoterViewModelContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
