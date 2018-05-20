@@ -48,6 +48,7 @@ class UpvoterViewController: UIViewController {
         }
         alert.addTextField { (textfield) in
             textfield.placeholder = "Enter your topic"
+            textfield.delegate = self
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
@@ -70,5 +71,41 @@ extension UpvoterViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.topic = self.upvoterViewModel.topicArray[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let upvoteAction = UIContextualAction(style: .normal, title: "Upvote") { (action, view, success) in
+            self.upvoterViewModel.upvote(at: indexPath.row)
+            self.upvoterViewModel.sortArray(by: TopicSortingType.votes, and: >)
+            tableView.reloadData()
+            success(true)
+        }
+        upvoteAction.image = UIImage(named: "icon_up")
+        upvoteAction.backgroundColor = .green
+        
+        return UISwipeActionsConfiguration(actions: [upvoteAction])
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let downvoteAction = UIContextualAction(style: .normal, title: "Downvote") { (action, view, success) in
+            self.upvoterViewModel.downvote(at: indexPath.row)
+            self.upvoterViewModel.sortArray(by: TopicSortingType.time, and: >)
+            tableView.reloadData()
+            success(true)
+        }
+        downvoteAction.image = UIImage(named: "icon_down")
+        downvoteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [downvoteAction])
+    }
+}
+
+extension UpvoterViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let currentString = textField.text as NSString? {
+            let newString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= 255
+        }
+        return true
     }
 }

@@ -57,4 +57,67 @@ class UpvoterViewModelTests: XCTestCase {
         print(subject.topicArray)
         XCTAssertEqual(subject.topicArray[0].topicTitle, topic3.topicTitle)
     }
+    
+    func testSortingUpvotedTopicOrder() {
+        let subject = UpvoterViewModel()
+        var topic1 = Topic(topicTitle: "test")
+        topic1.voteCount = 1
+        var topic2 = Topic(topicTitle: "test2")
+        topic2.voteCount = 2
+        var topic3 = Topic(topicTitle: "test3")
+        topic3.voteCount = 2
+        
+        subject.add(topic: topic1)
+        subject.add(topic: topic2)
+        subject.add(topic: topic3)
+        
+        subject.upvote(at: 2)
+        subject.upvote(at: 2)
+        
+        XCTAssertNotEqual(subject.topicArray[0].topicTitle, topic1.topicTitle)
+        subject.sortArray(by: .votes, and: >)
+        XCTAssertEqual(subject.topicArray[0].topicTitle, topic1.topicTitle)
+    }
+    
+    func testSortingDownvotedTopicOrder() {
+        let subject = UpvoterViewModel()
+        var topic1 = Topic(topicTitle: "test")
+        topic1.voteCount = 3
+        var topic2 = Topic(topicTitle: "test2")
+        topic2.voteCount = 2
+        var topic3 = Topic(topicTitle: "test3")
+        topic3.voteCount = 1
+        
+        subject.add(topic: topic1)
+        subject.add(topic: topic2)
+        subject.add(topic: topic3)
+        
+        subject.downvote(at: 0)
+        subject.downvote(at: 0)
+        subject.downvote(at: 0)
+        
+        XCTAssertEqual(subject.topicArray[0].topicTitle, topic1.topicTitle)
+        subject.sortArray(by: .votes, and: >)
+        XCTAssertEqual(subject.topicArray[0].topicTitle, topic2.topicTitle)
+    }
+    
+    func testSortingTimeTopicOrder() {
+        let subject = UpvoterViewModel()
+        var topic1 = Topic(topicTitle: "test")
+        topic1.voteCount = 2
+        topic1.timePosted = Date().addingTimeInterval(5.0)
+        var topic2 = Topic(topicTitle: "test2")
+        topic2.voteCount = 3
+        var topic3 = Topic(topicTitle: "test3")
+        topic3.voteCount = 1
+        
+        subject.add(topic: topic1)
+        subject.add(topic: topic2)
+        subject.add(topic: topic3)
+        
+        XCTAssertEqual(subject.topicArray[0].topicTitle, topic2.topicTitle)
+        subject.sortArray(by: .time, and: >)
+        XCTAssertEqual(subject.topicArray[0].topicTitle, topic1.topicTitle)
+    }
+    
 }
