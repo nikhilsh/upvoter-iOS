@@ -14,9 +14,9 @@
 		31804C5920B041EA0010880F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31804C5720B041EA0010880F /* Main.storyboard */; };
 		31804C5B20B041EC0010880F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31804C5A20B041EC0010880F /* Assets.xcassets */; };
 		31804C5E20B041EC0010880F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31804C5C20B041EC0010880F /* LaunchScreen.storyboard */; };
-		31804C6920B041EC0010880F /* UpvoterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31804C6820B041EC0010880F /* UpvoterTests.swift */; };
 		318C317220B074B800CB518E /* UpvoterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C317120B074B800CB518E /* UpvoterCell.swift */; };
 		318C317520B074F900CB518E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C317420B074F900CB518E /* Topic.swift */; };
+		318C317720B180F000CB518E /* UpvoterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C317620B180F000CB518E /* UpvoterViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +40,10 @@
 		31804C5D20B041EC0010880F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31804C5F20B041EC0010880F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31804C6420B041EC0010880F /* UpvoterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpvoterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		31804C6820B041EC0010880F /* UpvoterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterTests.swift; sourceTree = "<group>"; };
 		31804C6A20B041EC0010880F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318C317120B074B800CB518E /* UpvoterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterCell.swift; sourceTree = "<group>"; };
 		318C317420B074F900CB518E /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		318C317620B180F000CB518E /* UpvoterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpvoterViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 		31804C6720B041EC0010880F /* UpvoterTests */ = {
 			isa = PBXGroup;
 			children = (
-				31804C6820B041EC0010880F /* UpvoterTests.swift */,
+				318C317620B180F000CB518E /* UpvoterViewModelTests.swift */,
 				31804C6A20B041EC0010880F /* Info.plist */,
 			);
 			path = UpvoterTests;
@@ -177,6 +177,7 @@
 					};
 					31804C6320B041EC0010880F = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 						TestTargetID = 31804C4F20B041EA0010880F;
 					};
 				};
@@ -238,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31804C6920B041EC0010880F /* UpvoterTests.swift in Sources */,
+				318C317720B180F000CB518E /* UpvoterViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +428,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EHW7L3679R;
 				INFOPLIST_FILE = UpvoterTests/Info.plist;
@@ -437,6 +439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sh.nikhil.UpvoterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Upvoter.app/Upvoter";
@@ -448,6 +451,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EHW7L3679R;
 				INFOPLIST_FILE = UpvoterTests/Info.plist;
