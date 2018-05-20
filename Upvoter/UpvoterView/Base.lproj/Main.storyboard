@@ -21,6 +21,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Roq-7I-sfF">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="k8e-t6-c1f">
+                                    <rect key="frame" x="0.0" y="102" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="upvoterCell" rowHeight="74" id="6HO-YJ-IGj" customClass="UpvoterCell" customModule="Upvoter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
@@ -35,7 +40,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuz-Pn-HFB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuz-Pn-HFB">
                                                     <rect key="frame" x="328" y="11" width="40" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="LLV-Dk-9mC"/>
@@ -44,11 +49,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arX-5h-IVY">
-                                                    <rect key="frame" x="343" y="47" width="25" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="kzI-bu-iOP"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arX-5h-IVY">
+                                                    <rect key="frame" x="329" y="47" width="39" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,10 +60,12 @@
                                                 <constraint firstItem="VmJ-RS-N5p" firstAttribute="leading" secondItem="4v9-aG-bMO" secondAttribute="leading" constant="15" id="9Hk-i9-ffW"/>
                                                 <constraint firstAttribute="trailing" secondItem="Yuz-Pn-HFB" secondAttribute="trailing" constant="7" id="Fbg-4I-dmQ"/>
                                                 <constraint firstItem="Yuz-Pn-HFB" firstAttribute="leading" secondItem="VmJ-RS-N5p" secondAttribute="trailing" constant="7" id="JQa-RS-f7F"/>
+                                                <constraint firstItem="arX-5h-IVY" firstAttribute="leading" secondItem="VmJ-RS-N5p" secondAttribute="trailing" constant="8" id="QyW-as-vew"/>
                                                 <constraint firstAttribute="trailing" secondItem="arX-5h-IVY" secondAttribute="trailing" constant="7" id="RYW-tD-Mfq"/>
                                                 <constraint firstAttribute="bottom" secondItem="arX-5h-IVY" secondAttribute="bottom" constant="11.5" id="YF0-H4-U2o"/>
                                                 <constraint firstItem="VmJ-RS-N5p" firstAttribute="top" secondItem="4v9-aG-bMO" secondAttribute="top" constant="11" id="YnM-kx-7le"/>
                                                 <constraint firstAttribute="bottom" secondItem="VmJ-RS-N5p" secondAttribute="bottom" constant="11.5" id="ce0-sa-QQH"/>
+                                                <constraint firstItem="arX-5h-IVY" firstAttribute="top" secondItem="Yuz-Pn-HFB" secondAttribute="bottom" constant="18" id="hwe-Ji-W4V"/>
                                                 <constraint firstItem="Yuz-Pn-HFB" firstAttribute="top" secondItem="4v9-aG-bMO" secondAttribute="top" constant="11" id="wmu-aa-Rc2"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -70,13 +70,14 @@ extension UpvoterViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.topic = self.upvoterViewModel.topicArray[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let upvoteAction = UIContextualAction(style: .normal, title: "Upvote") { (action, view, success) in
+        let upvoteAction = UIContextualAction(style: .normal, title: "Upvote") { (_, _, success) in
             self.upvoterViewModel.upvote(at: indexPath.row)
-            self.upvoterViewModel.sortArray(by: TopicSortingType.votes, and: >)
+            self.upvoterViewModel.sortArray(and: >)
             tableView.reloadData()
             success(true)
         }
@@ -87,9 +88,9 @@ extension UpvoterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let downvoteAction = UIContextualAction(style: .normal, title: "Downvote") { (action, view, success) in
+        let downvoteAction = UIContextualAction(style: .normal, title: "Downvote") { (_, _, success) in
             self.upvoterViewModel.downvote(at: indexPath.row)
-            self.upvoterViewModel.sortArray(by: TopicSortingType.time, and: >)
+            self.upvoterViewModel.sortArray(and: >)
             tableView.reloadData()
             success(true)
         }
@@ -101,6 +102,7 @@ extension UpvoterViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension UpvoterViewController: UITextFieldDelegate {
+    // cap length to 255
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let currentString = textField.text as NSString? {
             let newString = currentString.replacingCharacters(in: range, with: string) as NSString

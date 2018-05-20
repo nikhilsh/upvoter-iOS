@@ -18,7 +18,9 @@ class UpvoterViewModel {
         return topicArray.prefix(20).count
     }
     
-    func sortArray(by comparisonProperty: TopicSortingType, and comparator: (Int, Int) -> Bool) {
+    func sortArray(by comparisonProperty: TopicSortingType = .votes, and comparator: (Int, Int) -> Bool) {
+        // allow for sorting based on time or votes, depending on what's passed in. Also allow for sorting ascending or descending
+        
         topicArray.sort { (a, b) -> Bool in
             switch comparisonProperty {
             case .time:
@@ -30,6 +32,7 @@ class UpvoterViewModel {
     }
     
     func add(topic: Topic) {
+        // default adding elements based on votes
         if let index = topicArray.index(where: { $0.voteCount < topic.voteCount }) {
             topicArray.insert(topic, at: index)
         } else {
